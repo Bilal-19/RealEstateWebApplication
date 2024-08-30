@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="./media/company_logo.png" type="image/x-icon">
+    <title>Real State</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <style>
+        img {
+            height: 300px;
+            width: 100px;
+            object-fit: cover;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .card {
+            box-sizing: border-box;
+        }
+
+        i {
+            height: 20px;
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light text-light bg-success">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="index.html">
+                    <img src="./media/company_logo.png" alt="Logo" class="img-fluid" height="100px" width="100px">
+                    <span class="fw-bold">Real Estate</span>
+                </a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#commercial-residential-plots">Plots</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#property-consultant">Property Consultant</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Calculation Tools
+                            </a>
+                            <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#home-loan-calculator">Home Loan Calculator</a></li>
+                                <li><a class="dropdown-item" href="#area-unit-calculator">Area Unit Calculator</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#construction-cost-calculator">Construction Cost
+                                        Calculator</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#contact-us">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <section>
+        <div class="container-fluid mt-2">
+            <div class="row">
+                <h2 class="text-center">Welcome to Karachi Real Estate</h2>
+            </div>
+        </div>
+    </section>
+    <div class="container-fluid mt-5" id="commercial-residential-plots">
+        <div class="row">
+            <h3 class="text-center">Residential & Commercial Plots</h3>
+        </div>
+        <div class="row" id="show-plot"></div>
+    </div>
+
+    <div class="container-fluid mt-5" id="property-consultant">
+        <div class="row">
+            <h3 class="text-center">Property Consultant</h3>
+        </div>
+        <div class="row" id="show-property-consultant"></div>
+    </div>
+
+    <div class="container-fluid mb-5 mt-5" id="home-loan-calculator">
+        <div class="row">
+            <h4 class="text-center">Home Loan Calculator</h4>
+            <form class="form">
+                <div class="col-md-5 mx-auto">
+                    <label for="cal-property-price" class="form-label mb-0">Property Price: <b
+                            style="color: darkred;">*</b> </label>
+                    <input type="number" required class="form-control" id="cal-property-price" min="10000"
+                        max="10000000000">
+                    <small id="show-price-error" class="mt-0"></small>
+                </div>
+                <div class="col-md-5 mx-auto">
+                    <label for="cal-down-payment" class="form-label mb-0 mt-2">Down Payment: <b
+                            style="color: darkred;">*</b></label>
+                    <input type="number" required class="form-control" id="cal-down-payment" min="5000" max="10000000">
+                    <small id="show-payment-error" class="mt-0"></small>
+                </div>
+                <div class="col-md-5 mx-auto">
+                    <label for="cal-loan-period" class="form-label mb-0 mt-2">Loan Period <b>(In Years): </b> </label>
+                    <input type="number" required class="form-control" id="cal-loan-period" min="5" max="30">
+                    <small id="show-loan-error" class="mt-0"></small>
+                </div>
+                <div class="col-md-5 mx-auto">
+                    <label for="cal-AIR" class="form-label mb-0 mt-2">Annual Interest Rate <b>(%):</b></label>
+                    <input type="number" required class="form-control" id="cal-AIR" min="5" max="30">
+                    <small id="show-air-error" class="mt-0"></small>
+                </div>
+                <div class="col-md-5 mx-auto">
+                    <input type="submit" class="btn btn-outline-success mt-3" id="calc-emi" value="Calculate EMI">
+                </div>
+                <div class="col-md-5 mx-auto">
+                    <p id="emi-result" class="text-success text-center"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container-fluid mb-5 mt-5" id="area-unit-calculator">
+        <div class="row">
+            <h4 class="text-center mb-0">Area Unit Calculator</h4>
+            <form class="form">
+                <div class="col-md-5 mx-auto mt-0">
+                    <label for="" class="form-label mb-0">Marla Size: <b style="color: darkred;">*</b> </label>
+                    <div class="input-group">
+                        <input type="number" required class="form-control" id="cal-marla-size" min="1">
+                        <select name="area-converter" id="area-converter" class="form-select">
+                            <option value="square-feet">Square Feet</option>
+                            <option value="square-yards">Square Yards</option>
+                            <option value="square-meters">Square Meters</option>
+                            <option value="kanal">Kanal</option>
+                            <option value="acre-kanal">Acre/Kanal</option>
+                            <option value="murabba">Murabba</option>
+                            <option value="hectare">Hectare</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-5 mx-auto mt-2">
+                    <input type="submit" class="btn btn-outline-success" id="calc-area" value="Calculate Area">
+                </div>
+                <p class="text-center" id="area-result"></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="construction-cost-calculator">
+        <div class="row">
+            <h4 class="text-center mb-0">Construction Cost Calculator</h4>
+            <form class="form">
+                <div class="col-md-5 mx-auto">
+                    <label for="per-sqfeet-cost" class="form-label mb-0">Per Square Feet Cost: <b
+                            style="color: darkred;">*</b> </label>
+                    <input type="number" required class="form-control" id="per-sqfeet-cost" min="1000"
+                        max="10000000000">
+                    <small id="per-sqfeet-cost-err" class="mt-0"></small>
+                </div>
+                <div class="col-md-5 mx-auto">
+                    <label for="area-sqfeet" class="form-label mb-0 mt-2">Area (Square Feet): <b
+                            style="color: darkred;">*</b></label>
+                    <input type="number" required class="form-control" id="area-sqfeet" min="5000" max="10000000">
+                    <small id="area-sqfeet-error" class="mt-0"></small>
+                </div>
+                <div class="col-md-5 mx-auto">
+                    <label for="additional-cost" class="form-label mb-0 mt-2">Additional Cost: <b
+                            style="color: darkred;">*</b> </label>
+                    <input type="number" required class="form-control" id="additional-cost" min="5" max="3000000">
+                    <small id="additional-cost-error" class="mt-0"></small>
+                </div>
+                <div class="col-md-5 mx-auto">
+                    <input type="submit" class="btn btn-outline-success mt-3" id="calc-construction-cost"
+                        value="Calculate Construction Cost">
+                </div>
+                <div class="col-md-5 mx-auto">
+                    <p id="construction-cost-result" class="text-success text-center"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-success text-light" id="contact-us">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-3 mt-3">
+                    <h3 class="text-center">Let's connect with us</h3>
+                    <span class="d-flex justify-content-evenly align-items-center mt-5" id="social-icons">
+                    </span>
+                    <div class="col-md-12 mt-5" id="footer-nav-options"></div>
+                </div>
+
+                <div class="col-md-8 mt-3">
+                    <h3 class="text-center">Contact Us</h3>
+                    <form class="mb-5" id="contact-form">
+                        <div class="col-md-5 mx-auto">
+                            <label for="customer-name" class="form-label mb-0 mt-2">Customer Name: <b
+                                    style="color: white;">*</b> </label>
+                            <input type="text" required class="form-control" id="customer-name">
+                            <small id="cname-err" class="mt-0"></small>
+                        </div>
+
+                        <div class="col-md-5 mx-auto">
+                            <label for="customer-email" class="form-label mb-0 mt-3">Customer Email: <b
+                                    style="color: white;">*</b> </label>
+                            <input type="email" required class="form-control" id="customer-email">
+                            <small id="cemail-err" class="mt-0"></small>
+                        </div>
+
+                        <div class="col-md-5 mx-auto">
+                            <label for="customer-message" class="form-label mb-0 mt-3">Customer Message: <b
+                                    style="color: white;">*</b> </label>
+                            <textarea name="" id="customer-message" class="form-control"
+                                style="resize: none;"></textarea>
+                            <small id="cemail-err" class="mt-0"></small>
+                        </div>
+                        <div class="col-md-5 mx-auto">
+                            <input type="submit" class="btn btn-light text-success mt-3" id="submit-contact-info"
+                                value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.mjs" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
